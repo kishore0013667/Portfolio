@@ -5,19 +5,35 @@
 }
 
     body{
-    background : black;
+    background : linear-gradient(to right,#0f0f0f,#1a1a1a);
     color:white;
     font-family:Arial;
+    overflow-x:hidden ;
 }
-html{
+html
+{
     scroll-behavior: smooth;
 }
-nav{
+
+#home{
+    min-height:100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+nav
+{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background: darkgray;
+    background: rgba(255, 255, 255, 0.05);
     padding:20px 50px;
+    backdrop-filter:blur(10px);
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 nav u1{
@@ -37,12 +53,14 @@ section{
 }
 
 h1{
-    font-size:45px;
+    font-size:70px;
+    margin-bottom: 10px;
 }
 
 h2{
     color:cyan;
     margin-bottom:20px;
+    font-size: 35px;
 }
 
 h3{
@@ -72,9 +90,12 @@ button:hover{
 }
 
 img{
-    width: 150px;
-    height:150px;
+    width: 220px;
+    height: 220px;
     border-radius:50%;
+    object-fit: cover;
+    border: 4px solid cyan;
+    box-shadow: 0 0 30px cyan;
     margin-bottom:20px;
 }
 
@@ -107,11 +128,13 @@ nav a:hover{
     padding:30px;
     width:300px;
     border: 15px;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 .project-card:hover{
     transform: translateY(-10px);
+    transform: translateY(-15px) scale(1.03);
+    box-shadow:0 0 20px cyan;
 }
 
 .project-card h3{
@@ -229,3 +252,13 @@ button{
     transition: 0.3s;
 }
 
+.hidden{
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s;
+}
+
+.show{
+    opacity: 1;
+    transform: translateY(0);
+}

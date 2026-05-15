@@ -50,3 +50,21 @@ themeButton.addEventListener("click",function(){
 }
 
 });
+
+const hiddenElements = document.querySelectorAll(".hidden");
+
+window.addEventListener("scroll", function(){
+
+    hiddenElements.forEach(function(element){
+
+        const elements = elements.getBoundClientRect().top;
+
+        const windowHeight =window.innerHeight;
+
+        if(elementsTop < windowHeight - 100){
+
+            element.classlist.add("show");
+        }
+    });
+});
+window.dispatchEvent(new Event("scroll"));
