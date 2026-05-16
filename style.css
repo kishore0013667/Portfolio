@@ -6,9 +6,9 @@
 
     body{
     background : linear-gradient(to right,#0f0f0f,#1a1a1a);
-    color:white;
-    font-family:Arial;
-    overflow-x:hidden ;
+    color: white;
+    font-family: 'Poppins',sans-serif;
+    overflow-x: hidden;
 }
 html
 {
@@ -47,20 +47,30 @@ nav a{
     text-decoration:none;
 }
 
+nav a:hover{
+    color:cyan;
+    text-shadow:0 0 10px cyan;
+}
+
 section{
-    padding:100px 50 px;
+    padding:120px 50 px;
     text-align:center;
 }
 
 h1{
     font-size:70px;
+    background: linear-gradient(to right,cyan,white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 10px;
 }
 
 h2{
     color:cyan;
-    margin-bottom:20px;
-    font-size: 35px;
+    margin-bottom:40px;
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 
 h3{
@@ -75,18 +85,23 @@ p{
 }
 
 button{
-    margin: top 20px;
-    padding :12px 25px;
+    padding :14px 30px;
     border : none;
     background : cyan;
-    color : #1a1a1a;
-    border-radius : 10px;
-    font-size : 18px;
+    color : black;
+    border-radius : 30px;
+    font-size : 16px;
+    font-weight: bold;
     cursor: pointer; 
     transition: 0.3px;
 }
 button:hover{
-    transform: scale(1.05);
+    transform: scale(1.08);
+    box-shadow: 0 0 20px cyan;
+}
+button:active
+{
+    transform: scale(0.95);
 }
 
 img{
@@ -99,10 +114,6 @@ img{
     margin-bottom:20px;
 }
 
-nav a:hover{
-    color:cyan;
-}
-
 .skills{
     display:flex;
     justify-content:center;
@@ -111,9 +122,16 @@ nav a:hover{
 }
 
 .skill-box{
-    background:#222;
-    padding:20px 30px;
-    border-radius:10px;
+    background:rgba(255, 255, 255, 0.08);
+    padding:20px 35px;
+    border-radius:15px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.skill-box:hover{
+    transition: translateY(-10px);
+    box-shadow: 0 0 15px cyan;
 }
 
 .project{
@@ -124,16 +142,16 @@ nav a:hover{
 }
 
 .project-card{
-    background: #1f1f1f;
+    background: rgba(255, 255, 255, 0.08);
     padding:30px;
-    width:300px;
-    border: 15px;
-    transition: 0.5s;
+    width:320px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: 0.4s;
 }
 
 .project-card:hover{
-    transform: translateY(-10px);
-    transform: translateY(-15px) scale(1.03);
+    transform: translateY(-15px);
     box-shadow:0 0 20px cyan;
 }
 
@@ -146,9 +164,11 @@ nav a:hover{
 }
 
 footer{
-    background: #1a1a1a;
-    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 30px;
     text-align: center;
+    margin-top: 50px;
 }
 
 .button-group{
@@ -253,12 +273,81 @@ button{
 }
 
 .hidden{
-    opacity: 0;
-    transform: translateY(50px);
+    opacity: 1;
+    transform: translateY(0);
     transition: all 1s;
 }
 
 .show{
     opacity: 1;
     transform: translateY(0);
+}
+
+/* BACKGROUND ANIMATION */
+
+.bg-animation{
+    position:fixed;
+
+    width:100%;
+    height:100%;
+
+    top:0;
+    left:0;
+
+    z-index:-1;
+
+    overflow:hidden;
+}
+
+.bg-animation span{
+
+    position:absolute;
+
+    display:block;
+
+    width:250px;
+    height:250px;
+
+    background:rgba(0,255,255,0.1);
+
+    border-radius:50%;
+
+    animation:move 15s linear infinite;
+}
+
+/* Circle Positions */
+
+.bg-animation span:nth-child(1){
+
+    top:10%;
+    left:10%;
+}
+
+.bg-animation span:nth-child(2){
+
+    top:50%;
+    left:70%;
+
+    width:350px;
+    height:350px;
+}
+
+.bg-animation span:nth-child(3){
+
+    top:80%;
+    left:30%;
+}
+
+/* Animation */
+
+@keyframes move{
+
+    0%{
+        transform:translateY(0px) rotate(0deg);
+    }
+
+    100%{
+        transform:translateY(-100px) rotate(360deg);
+    }
+
 }
